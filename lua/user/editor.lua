@@ -1,6 +1,9 @@
 -- 啟用滑鼠
 vim.opt.mouse = 'a'
 
+-- 啟用輸入按鍵顯示
+vim.opt.showcmd = true
+
 -- 設定檔案編碼格式
 vim.opt.encoding = 'utf-8'
 
