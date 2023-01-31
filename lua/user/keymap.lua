@@ -10,8 +10,11 @@ vim.g.mapleader = " "
 --   * {opts} [table|nil]       其他設定選項
 
 
+-- Ctrl+S 儲存文件
+vim.keymap.set("", "<C-s>", "<cmd>write<CR>")
+
 -- 按空白件時不要移動游標
-vim.keymap.set({ "n", "v" }, "<space>", "<nop>")
+-- vim.keymap.set({ "n", "v" }, "<space>", "<nop>")
 
 -- 捲動畫面後游標置中
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -22,15 +25,25 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- 選取並覆蓋內容時保留緩衝區內的內容
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set("x", "<leader>p", [["_dP]],
+  { desc = "Paste and keep the content in register" }
+)
 
 -- 複製到系統剪貼簿
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set({ "n", "v" }, "<leader>Y", [["+Y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]],
+  { desc = "Copy to system clipboard" }
+)
+vim.keymap.set({ "n", "v" }, "<leader>Y", [["+Y]],
+  { desc = "Copy to system clipboard (to end of line)" }
+)
 
 -- 刪除內容且不要存放到緩衝區
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
-vim.keymap.set({ "n", "v" }, "<leader>D", [["_D]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]],
+  { desc = "Delete w/o writing to register" }
+)
+vim.keymap.set({ "n", "v" }, "<leader>D", [["_D]],
+  { desc = "Delete w/o writing to register (to end of line)" }
+)
 
 
 
