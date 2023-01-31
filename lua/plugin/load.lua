@@ -3,11 +3,23 @@ vim.g.mapleader = " "
 require("lazy").setup(
   -- 要載入的插件列表
   {
-    -- Dracula 主題
-    { "Mofiqul/dracula.nvim", lazy=true },
+    { -- Dracula 主題
+      "Mofiqul/dracula.nvim",
+      lazy = true
+    },
     
-    -- Which-Key 按鍵提示
-    { "folke/which-key.nvim", lazy=true },
+    
+    { -- Which-Key 按鍵提示
+      "folke/which-key.nvim",
+      lazy = true
+    },
+
+    
+    { -- 狀態列
+      "nvim-lualine/lualine.nvim",
+      lazy = true,
+      dependencies = { "kyazdani42/nvim-web-devicons" }, 
+    },
   },
 
   -- lazy.nvim 的設定

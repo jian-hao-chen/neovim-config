@@ -37,5 +37,8 @@ local colors = {
 
 -- 設定主題 (注意: 不同主題載入方法可能不一樣)
 local theme = require("dracula")
-theme.setup({ colors = colors })
+theme.setup({
+  colors = colors,
+  lualine_bg_color = "#151320",
+})
 vim.cmd("colorscheme dracula")
