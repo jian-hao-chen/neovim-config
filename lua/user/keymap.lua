@@ -12,6 +12,7 @@ vim.g.mapleader = " "
 
 -- Ctrl+S 儲存文件
 vim.keymap.set("", "<C-s>", "<cmd>write<CR>")
+vim.keymap.set("i", "<C-s>", "<C-o><cmd>write<CR>")
 
 -- 按空白件時不要移動游標
 -- vim.keymap.set({ "n", "v" }, "<space>", "<nop>")
@@ -35,6 +36,11 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]],
 )
 vim.keymap.set({ "n", "v" }, "<leader>Y", [["+Y]],
   { desc = "Copy to system clipboard (to end of line)" }
+)
+
+-- 從系統剪貼簿貼上
+vim.keymap.set("n", "<leader>p", [["+p]],
+  { desc = "Paste from system clipboard" }
 )
 
 -- 刪除內容且不要存放到緩衝區
