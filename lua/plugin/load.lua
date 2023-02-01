@@ -5,20 +5,23 @@ require("lazy").setup(
   {
     { -- Dracula 主題
       "Mofiqul/dracula.nvim",
-      lazy = true
+      lazy = true,
     },
     
     
     { -- Which-Key 按鍵提示
       "folke/which-key.nvim",
-      lazy = true
+      lazy = true,
     },
 
+    { -- 檔案總管
+      "nvim-tree/nvim-tree.lua",
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
     
     { -- 狀態列
       "nvim-lualine/lualine.nvim",
-      lazy = true,
-      dependencies = { "kyazdani42/nvim-web-devicons" }, 
+      dependencies = { "nvim-tree/nvim-web-devicons" }, 
     },
   },
 
@@ -29,3 +32,8 @@ require("lazy").setup(
     },
   }
 )
+
+-- 實際載入插件
+require("plugin.setup_which_key")
+require("plugin.setup_nvim_tree")
+require("plugin.setup_lualine")
