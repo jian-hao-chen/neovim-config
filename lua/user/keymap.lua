@@ -11,7 +11,7 @@ vim.g.mapleader = " "
 
 
 -- Ctrl+S 儲存文件
-vim.keymap.set("", "<C-s>", "<Cmd>write<CR>")
+vim.keymap.set("", "<C-s>", "<Cmd>write<CR>", { desc = "Save to file" })
 vim.keymap.set("i", "<C-s>", "<C-o><Cmd>write<CR>")
 
 -- 按空白件時不要移動游標
@@ -54,4 +54,9 @@ vim.keymap.set({ "n", "v" }, "<Leader>D", [["_D]],
 -- 消除搜尋高亮
 vim.keymap.set("n", "<Esc><Esc>", "<Cmd>noh<CR>",
   { desc = "Clear highlights" }
+)
+
+-- 建立新檔案
+vim.keymap.set("n", "<Leader>fn", "<Cmd>ene <Bar> startinsert<CR>",
+  { desc = "New file" }
 )
