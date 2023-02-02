@@ -9,11 +9,12 @@ require("which-key").setup({
 
   window = {
     border = "rounded",
+    padding = { 1, 1, 1, 1 },
   },
 
   layout = {
-    height = { min = 5, max = 10 },
-    width = { min = 10, max = 80 },
+    height = { min = 4, max = 25 },
+    width = { min = 20, max = 60 },
     spacing = 5,
     align = "center",
   },
