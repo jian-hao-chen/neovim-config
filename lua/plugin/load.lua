@@ -38,6 +38,11 @@ require("lazy").setup(
   }
 )
 
+--設定打開 Lazy 的快捷鍵
+vim.keymap.set("", "<Leader>L", "<Cmd>Lazy<CR>",
+  { desc = "Lazy (Plugin manager)" }
+)
+
 -- 實際載入插件
 require("plugin.setup_which_key")
 require("plugin.setup_nvim_tree")
