@@ -23,6 +23,11 @@ require("lazy").setup(
       "nvim-lualine/lualine.nvim",
       dependencies = { "nvim-tree/nvim-web-devicons" },
     },
+
+    { -- 自訂起始畫面
+      "goolord/alpha-nvim",
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
   },
 
   -- lazy.nvim 的設定
@@ -37,3 +42,4 @@ require("lazy").setup(
 require("plugin.setup_which_key")
 require("plugin.setup_nvim_tree")
 require("plugin.setup_lualine")
+require("plugin.setup_alpha")

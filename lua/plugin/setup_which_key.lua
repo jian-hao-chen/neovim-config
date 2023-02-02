@@ -1,4 +1,4 @@
--- 設定 which-key.nvim 
+-- 設定 which-key.nvim
 require("which-key").setup({
   plugins = {
     spelling = {
@@ -13,7 +13,7 @@ require("which-key").setup({
 
   layout = {
     height = { min = 5, max = 10 },
-    width = { min = 10, max = 120 },
+    width = { min = 10, max = 80 },
     spacing = 5,
     align = "center",
   },
