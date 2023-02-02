@@ -2,7 +2,7 @@
 require("nvim-tree").setup({
   hijack_cursor = true,
   sync_root_with_cwd = true,
-  
+
   -- 布局相關設定
   view = {
     adaptive_size = true,
@@ -19,15 +19,17 @@ require("nvim-tree").setup({
         { key = "D", action = "" }, -- default trash
         { key = "J", action = "" }, -- default last_sibling
         { key = "K", action = "" }, -- default first_sibling
+        { key = "<C-]>", action = "" }, -- default cd
         { key = "<2-RightMouse>", action = "" }, -- default cd
-        
+
         { key = "<CR>", action = "rename" },
         { key = "<Del>", action = "trash" },
-        { key = "<Left>", action = "close_node" },   
-        { key = "<Right>", action = "preview" }, 
+        { key = "<Left>", action = "close_node" },
+        { key = "<Right>", action = "preview" },
         { key = "<Space>", action = "edit" },
         { key = "<C-c>", action = "copy" },
         { key = "<C-x>", action = "cut" },
+        { key = "=", action = "cd" },
         { key = ".", action = "toggle_dotfiles" },
         { key = "?", action = "toggle_help" },
         { key = "%", action = "run_file_command" },
@@ -42,13 +44,39 @@ require("nvim-tree").setup({
   renderer = {
     full_name = true,
     indent_markers = {
-        enable = true,
+      enable = true,
     },
     icons = {
       git_placement = "signcolumn",
+      symlink_arrow = " -> ",
       show = {
-          folder_arrow = false,
-          git = true,
+        folder_arrow = false,
+        git = true,
+      },
+      glyphs = {
+        default = "",
+        symlink = "",
+        bookmark = "",
+        modified = "●",
+        folder = {
+          arrow_closed = "",
+          arrow_open = "",
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = "",
+          symlink_open = "",
+        },
+        git = {
+          unstaged = "M", -- "✗",
+          staged = "✓",
+          unmerged = "",
+          renamed = "➜",
+          untracked = "U", -- "★",
+          deleted = "",
+          ignored = "◌",
+        },
       },
     },
   },
@@ -65,13 +93,16 @@ require("nvim-tree").setup({
     },
   },
 
-  
+
 
   -- 過濾規則
   filters = {
     custom = {
-        "^.git$",
+      "^.git$",
     },
+  },
+  live_filter = {
+    always_show_folders = false,
   },
 })
 
