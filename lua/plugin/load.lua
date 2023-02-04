@@ -8,8 +8,7 @@ require("lazy").setup(
       lazy = true,
     },
 
-
-    { -- Which-Key 按鍵提示
+    { -- 按鍵提示
       "folke/which-key.nvim",
       lazy = true,
     },
@@ -28,6 +27,15 @@ require("lazy").setup(
       "goolord/alpha-nvim",
       dependencies = { "nvim-tree/nvim-web-devicons" },
     },
+
+    { -- 檔案搜尋 & 快速跳轉
+      "nvim-telescope/telescope.nvim",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons",
+      },
+      -- tag = "0.1.1",
+    },
   },
 
   -- lazy.nvim 的設定
@@ -39,8 +47,8 @@ require("lazy").setup(
 )
 
 --設定打開 Lazy 的快捷鍵
-vim.keymap.set("", "<Leader>L", "<Cmd>Lazy<CR>",
-  { desc = "Lazy (Plugin manager)" }
+vim.keymap.set("", "<Leader>ld", "<Cmd>Lazy<CR>",
+  { desc = "Lazy dashboard" }
 )
 
 -- 實際載入插件
