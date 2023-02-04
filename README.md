@@ -4,6 +4,7 @@ My [Neovim](https://neovim.io) configuration.
 ## Requirements
 - Neovim >= 0.8.0
 - Git >= 2.19.0 (due to [lazy.nvim](https://github.com/folke/lazy.nvim) plugin manager)
+- ripgrep (dependency of [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim))
 
 ## Usage
 
