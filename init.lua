@@ -1,5 +1,6 @@
 -- 載入插件
-require("plugin.check_lazy_install")
+require("plugin.check_lazy")
+require("plugin.check_ripgrep")
 require("plugin.load")
 
 
@@ -8,5 +9,3 @@ require("user.editor")
 require("user.keymap")
 require("user.appearance")
 require("user.autocmd")
-
-
