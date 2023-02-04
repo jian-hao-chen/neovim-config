@@ -46,7 +46,7 @@ dashboard.section.header.opts.hl = "Operator"
 dashboard.section.buttons.val = {
     dashboard.button("<Space> f n", "  New file", ":ene <Bar> startinsert<CR>"),
     dashboard.button("<Space> f e", "  File explorer", ":NvimTreeToggle<CR>"),
-    dashboard.button("<Space> L", "  Lazy (Plugin manager)", ":Lazy<CR>"),
+    dashboard.button("<Space> l d", "  Lazy dashboard", ":Lazy<CR>"),
     dashboard.button("q", "  Quit", ":qa<CR>"),
 }
 
