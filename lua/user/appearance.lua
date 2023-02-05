@@ -13,6 +13,9 @@ vim.opt.cursorline = true
 -- 設定緩衝區結束字元為空白
 vim.opt.fillchars = "eob: "
 
+-- 設定游標形狀
+vim.opt.guicursor = "n-v-sm:block,i-c-ci-ve:ver25,r-cr-o:hor20"
+
 -- 設定顏色
 local colors = {
   bg = "#22212C",

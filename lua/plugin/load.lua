@@ -34,8 +34,13 @@ require("lazy").setup(
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons",
       },
-      -- tag = "0.1.1",
+      branch = "0.1.x",
     },
+
+    { -- 內嵌終端機
+      "akinsho/toggleterm.nvim",
+      tag = "2.3.0",
+    }
   },
 
   -- lazy.nvim 的設定
@@ -46,13 +51,20 @@ require("lazy").setup(
   }
 )
 
---設定打開 Lazy 的快捷鍵
-vim.keymap.set("", "<Leader>ld", "<Cmd>Lazy<CR>",
-  { desc = "Lazy dashboard" }
-)
 
 -- 實際載入插件
 require("plugin.setup_which_key")
 require("plugin.setup_nvim_tree")
 require("plugin.setup_lualine")
 require("plugin.setup_alpha")
+require("plugin.setup_telescope")
+require("plugin.setup_toggleterm")
+
+
+--設定打開 Lazy 的快捷鍵
+local wk = require("which-key")
+wk.register({
+  ["<leader>l"] = { name = "+Lazy / +LSP" },
+  ["<leader>ld"] = { "<Cmd>Lazy<CR>", "Lazy dashboard" },
+
+})

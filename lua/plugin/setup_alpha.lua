@@ -28,36 +28,36 @@ local dashboard = require("alpha.themes.dashboard")
 -- }
 
 local banner = {
-    [[  __    __                         __      __   __                 ]],
-    [[ / /\  / /|                       / /|    / /| / /|                ]],
-    [[ ██ /\ ██ |   ______     ______   ██ |    ██ | ██/   _____  ____   ]],
-    [[ ███ /\██ |  /     /\   /     /\  ██ |    ██ | / /| /    /\/   /\  ]],
-    [[ ████ /██ | /██████ /| /██████ /| ██/\    ██/  ██ | ██████/████ /| ]],
-    [[ ██ ██ ██ | ██    ██ | ██ |  ██ |  ██/\  ██/   ██ | ██ | ██ | ██ | ]],
-    [[ ██ |████ | ████████/  ██ |__██ |   ██/\██/    ██ | ██ | ██ | ██ | ]],
-    [[ ██ | ███ | ██/     /| ██/   ██/     ████/     ██ | ██ | ██ | ██ | ]],
-    [[ ██/   ██/   ███████/   ██████/       ██/      ██/  ██/  ██/  ██/  ]],
-    [[                                                                   ]],
+  [[  __    __                         __      __   __                 ]],
+  [[ / /\  / /|                       / /|    / /| / /|                ]],
+  [[ ██ /\ ██ |   ______     ______   ██ |    ██ | ██/   _____  ____   ]],
+  [[ ███ /\██ |  /     /\   /     /\  ██ |    ██ | / /| /    /\/   /\  ]],
+  [[ ████ /██ | /██████ /| /██████ /| ██/\    ██/  ██ | ██████/████ /| ]],
+  [[ ██ ██ ██ | ██    ██ | ██ |  ██ |  ██/\  ██/   ██ | ██ | ██ | ██ | ]],
+  [[ ██ |████ | ████████/  ██ |__██ |   ██/\██/    ██ | ██ | ██ | ██ | ]],
+  [[ ██ | ███ | ██/     /| ██/   ██/     ████/     ██ | ██ | ██ | ██ | ]],
+  [[ ██/   ██/   ███████/   ██████/       ██/      ██/  ██/  ██/  ██/  ]],
+  [[                                                                   ]],
 }
 dashboard.section.header.val = banner
 dashboard.section.header.opts.hl = "Operator"
 
 -- 設定選單
 dashboard.section.buttons.val = {
-    dashboard.button("<Space> f n", "  New file", ":ene <Bar> startinsert<CR>"),
-    dashboard.button("<Space> f e", "  File explorer", ":NvimTreeToggle<CR>"),
-    dashboard.button("<Space> l d", "  Lazy dashboard", ":Lazy<CR>"),
-    dashboard.button("q", "  Quit", ":qa<CR>"),
+  dashboard.button("<Space> f n", "  New file", ":ene <Bar> startinsert<CR>"),
+  dashboard.button("<Space> f e", "  File explorer", ":NvimTreeToggle<CR>"),
+  dashboard.button("<Space> l d", "  Lazy dashboard", ":Lazy<CR>"),
+  dashboard.button("q", "  Quit", ":qa<CR>"),
 }
 
 -- 設定額外資訊
 local function get_footer()
-    local text = {}
-    local stat = require("lazy").stats()
-    text[1] = "  " .. stat.count .. " plugins installed"
-    local v = vim.version()
-    text[2] = "  v" .. v.major .. "." .. v.minor .. "." .. v.patch
-    return table.concat(text, "  ")
+  local text = {}
+  local stat = require("lazy").stats()
+  text[1] = "  " .. stat.count .. " plugins installed"
+  local v = vim.version()
+  text[2] = "  v" .. v.major .. "." .. v.minor .. "." .. v.patch
+  return table.concat(text, "  ")
 end
 
 dashboard.section.footer.val = get_footer()

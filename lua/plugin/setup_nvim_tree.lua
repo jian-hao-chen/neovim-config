@@ -109,6 +109,6 @@ require("nvim-tree").setup({
 
 local wk = require("which-key")
 wk.register({
-  ["<leader>f"] = { name = "+File" },
-  ["<leader>fe"] = { "<Cmd>NvimTreeToggle<CR>", "File Explore" },
+  ["<leader>f"] = { name = "+File / +Find" },
+  ["<leader>fe"] = { "<Cmd>NvimTreeToggle<CR>", "File explore" },
 })

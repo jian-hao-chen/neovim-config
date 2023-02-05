@@ -1,6 +1,8 @@
 -- 設定 Leader 鍵為空白鍵
 vim.g.mapleader = " "
 
+-- 設定按鍵之間的等待時間
+vim.opt.timeoutlen = 500
 
 -- 設定格式:
 -- vim.keymap.set({mode}, {lhs}, {rhs}, {opts})
