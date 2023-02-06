@@ -40,3 +40,8 @@ vim.opt.shiftwidth = 2
 -- 3. 是否以空格代替 Tab 字元
 vim.opt.expandtab = true
 
+-- 4. 智慧型 Tab
+vim.opt.smarttab = true
+
+-- 5. 不要摺疊過長的內容
+vim.opt.wrap = false
