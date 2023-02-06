@@ -37,9 +37,28 @@ require("lazy").setup(
       branch = "0.1.x",
     },
 
-    { -- 內嵌終端機
-      "akinsho/toggleterm.nvim",
-      tag = "2.3.0",
+    { -- LSP 相關
+      "williamboman/mason.nvim",
+      lazy = true,
+      dependencies = {
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+      },
+    },
+
+    { -- 自動補全
+      "hrsh7th/nvim-cmp",
+      lazy = true,
+      dependencies = {
+        "neovim/nvim-lspconfig",
+        "hrsh7th/cmp-nvim-lsp", -- completion source
+        "hrsh7th/cmp-buffer", -- completion source
+        "hrsh7th/cmp-cmdline", -- completion source
+        "hrsh7th/cmp-path", -- completion source
+        "hrsh7th/cmp-vsnip", -- bridge from vim-vsnip to nvim-cmp
+        "hrsh7th/vim-vsnip", -- snippets engine
+        "onsails/lspkind.nvim", -- type symbols in completion list
+      },
     }
   },
 
@@ -58,10 +77,10 @@ require("plugin.setup_nvim_tree")
 require("plugin.setup_lualine")
 require("plugin.setup_alpha")
 require("plugin.setup_telescope")
-require("plugin.setup_toggleterm")
+require("plugin.setup_lsp")
 
 
---設定打開 Lazy 的快捷鍵
+-- 設定打開 Lazy 的快捷鍵
 local wk = require("which-key")
 wk.register({
   ["<leader>l"] = { name = "+Lazy / +LSP" },
