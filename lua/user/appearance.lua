@@ -17,7 +17,7 @@ vim.opt.fillchars = "eob: "
 vim.opt.guicursor = "n-v-sm:block,i-c-ci-ve:ver25,r-cr-o:hor20"
 
 -- 設定彈出視窗的透明度
--- vim.opt.pumblend = 10
+vim.opt.pumblend = 5
 
 -- 設定顏色
 local colors = {
@@ -41,17 +41,18 @@ local colors = {
   bright_white = "#FFFFFF",
   menu = "#151320",
   visual = "#454158",
-  gutter_fg = "#F8F8F2",
   nontext = "#7970A9",
   white = "#F8F8F2",
-  black = "#151320",
+  black = "#0B0A10",
+  gutter_fg = "#F8F8F2",
+  gutter_bg = "#0B0A10",
 }
 
 -- 設定主題 (注意: 不同主題載入方法可能不一樣)
 local theme = require("dracula")
 theme.setup({
   colors = colors,
-  lualine_bg_color = colors.menu,
+  lualine_bg_color = colors.black,
 })
 vim.cmd("colorscheme dracula")
 
@@ -65,5 +66,6 @@ vim.api.nvim_set_hl(0, "VertSplit", { fg = colors.visual })
 -- 重新指定 nvim-tree.nvim 背景顏色
 vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = colors.bg })
 
--- 重新指定 nvim-cmp 選單背景顏色
--- vim.api.nvim_set_hl(0, "CmpItemMenu", { bg = "#2B2640" })
+-- 重新指定 nvim-cmp 選單邊框背景顏色
+vim.api.nvim_set_hl(0, "CmpMenuBorder", { blend = 5, bg = colors.menu, fg = colors.comment })
+-- vim.api.nvim_set_hl(0, "CmpMenu", { blend = 5, bg = colors.bg })
