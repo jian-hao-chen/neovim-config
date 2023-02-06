@@ -16,6 +16,9 @@ vim.opt.fillchars = "eob: "
 -- 設定游標形狀
 vim.opt.guicursor = "n-v-sm:block,i-c-ci-ve:ver25,r-cr-o:hor20"
 
+-- 設定彈出視窗的透明度
+-- vim.opt.pumblend = 10
+
 -- 設定顏色
 local colors = {
   bg = "#22212C",
@@ -61,3 +64,6 @@ vim.api.nvim_set_hl(0, "VertSplit", { fg = colors.visual })
 
 -- 重新指定 nvim-tree.nvim 背景顏色
 vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = colors.bg })
+
+-- 重新指定 nvim-cmp 選單背景顏色
+-- vim.api.nvim_set_hl(0, "CmpItemMenu", { bg = "#2B2640" })
