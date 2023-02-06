@@ -1,3 +1,11 @@
+if (jit.os == "Windows") then
+  vim.opt.shell = "pwsh.exe"
+elseif (jit.os == "") then
+  vim.opt.shell = "zsh"
+else
+  vim.opt.shell = "bash"
+end
+
 -- 載入插件
 require("plugin.check_lazy")
 require("plugin.check_ripgrep")
