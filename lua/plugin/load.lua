@@ -77,7 +77,9 @@ require("plugin.setup_nvim_tree")
 require("plugin.setup_lualine")
 require("plugin.setup_alpha")
 require("plugin.setup_telescope")
-require("plugin.setup_lsp")
+require("plugin.setup_mason")
+require("plugin.setup_nvim_cmp")
+require("plugin.setup_lspconfig")
 
 
 -- 設定打開 Lazy 的快捷鍵
