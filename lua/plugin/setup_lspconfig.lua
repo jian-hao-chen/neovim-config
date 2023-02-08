@@ -21,38 +21,51 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'gh', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  if client.server_capabilities.documentFormattingProvider then
+    enable_format_on_save(client, bufnr)
+  end
 end
 
 -- 載入各語言伺服器的建議設定
 nvim_lsp.sumneko_lua.setup({
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-    enable_format_on_save(client, bufnr)
-  end,
   capabilities = capabilities,
+  on_attach = on_attach,
   settings = {
     Lua = {
+      runtime = {
+        version = "LuaJIT",
+      },
       diagnostics = {
         -- 讓語言伺服器找的到全域變數
-        globals = { "vim", "jit" },
+        globals = { "vim" },
       },
-
       workspace = {
         -- 讓語言伺服器找到 Neovim runtime 文件
         library = vim.api.nvim_get_runtime_file("", true),
         checkThirdParty = false,
       },
+      format = {
+        enable = true,
+        defaultConfig = {
+          indent_style = "space",
+          indent_size = "2",
+          continuation_indent = "2",
+        },
+      },
     },
   },
 })
 
+-- 設定語言檢查說明
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-  underline = true,
-  update_in_insert = false,
-  virtual_text = { spacing = 4, prefix = "●" },
-  severity_sort = true,
-})
+    vim.lsp.diagnostic.on_publish_diagnostics,
+    {
+      underline = true,
+      update_in_insert = false,
+      virtual_text = { spacing = 4, prefix = "🔥" },
+      severity_sort = true,
+    }
+  )
 
 -- 設定語言檢查符號
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -61,7 +74,6 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
--- 設定語言檢查說明
 vim.diagnostic.config({
   virtual_text = {
     prefix = "●"

@@ -40,13 +40,14 @@ local banner = {
   [[                                                                   ]],
 }
 dashboard.section.header.val = banner
-dashboard.section.header.opts.hl = "Operator"
+-- dashboard.section.header.opts.hl = "Operator"
 
 -- 設定選單
 dashboard.section.buttons.val = {
-  dashboard.button("<Space> f n", "  New file", ":ene <Bar> startinsert<CR>"),
-  dashboard.button("<Space> f e", "  File explorer", ":NvimTreeToggle<CR>"),
-  dashboard.button("<Space> l d", "  Lazy dashboard", ":Lazy<CR>"),
+  dashboard.button("<Space> f n", "  New file", "<Cmd>ene <Bar> startinsert<CR>"),
+  dashboard.button("<Space> f e", "  File explorer", "<Cmd>NvimTreeToggle<CR>"),
+  dashboard.button("<Space> l p", "  Plugin manager", "<Cmd>Lazy<CR>"),
+  dashboard.button("<Space> l s", "  LSP manager", "<Cmd>Mason<CR>"),
   dashboard.button("q", "  Quit", ":qa<CR>"),
 }
 

@@ -19,53 +19,16 @@ vim.opt.guicursor = "n-v-sm:block,i-c-ci-ve:ver25,r-cr-o:hor20"
 -- 設定彈出視窗的透明度
 vim.opt.pumblend = 5
 
--- 設定顏色
-local colors = {
-  bg = "#22212C",
-  fg = "#F8F8F2",
-  selection = "#454158",
-  comment = "#7970A9",
-  red = "#FF9580",
-  orange = "#FFCA80",
-  yellow = "#FFFF80",
-  green = "#8AFF80",
-  purple = "#9580FF",
-  cyan = "#80FFEA",
-  pink = "#FF80BF",
-  bright_red = "#FFAA99",
-  bright_green = "#A2FF99",
-  bright_yellow = "#FFFF99",
-  bright_blue = "#AA99FF",
-  bright_magenta = "#FF99CC",
-  bright_cyan = "#99FFEE",
-  bright_white = "#FFFFFF",
-  menu = "#151320",
-  visual = "#454158",
-  nontext = "#7970A9",
-  white = "#F8F8F2",
-  black = "#0B0A10",
-  gutter_fg = "#F8F8F2",
-  gutter_bg = "#0B0A10",
-}
 
--- 設定主題 (注意: 不同主題載入方法可能不一樣)
-local theme = require("dracula")
-theme.setup({
-  colors = colors,
-  lualine_bg_color = colors.black,
-})
-vim.cmd("colorscheme dracula")
-
-
--- 設定游標所在列的行號顏色
-vim.api.nvim_set_hl(0, "CursorLineNr", { fg = colors.orange })
-
--- 設定緩衝區分隔線顏色
-vim.api.nvim_set_hl(0, "VertSplit", { fg = colors.visual })
-
--- 重新指定 nvim-tree.nvim 背景顏色
-vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = colors.bg })
-
--- 重新指定 nvim-cmp 選單邊框背景顏色
-vim.api.nvim_set_hl(0, "CmpMenuBorder", { blend = 5, bg = colors.menu, fg = colors.comment })
--- vim.api.nvim_set_hl(0, "CmpMenu", { blend = 5, bg = colors.bg })
+-- -- 設定游標所在列的行號顏色
+-- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = colors.orange })
+--
+-- -- 設定緩衝區分隔線顏色
+-- vim.api.nvim_set_hl(0, "VertSplit", { fg = colors.visual })
+--
+-- -- 重新指定 nvim-tree.nvim 背景顏色
+-- vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = colors.bg })
+--
+-- -- 重新指定 nvim-cmp 選單邊框背景顏色
+-- vim.api.nvim_set_hl(0, "CmpMenuBorder", { blend = 5, bg = colors.menu, fg = colors.comment })
+-- -- vim.api.nvim_set_hl(0, "CmpMenu", { blend = 5, bg = colors.bg })

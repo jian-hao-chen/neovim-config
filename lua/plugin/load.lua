@@ -1,12 +1,14 @@
 -- 使用 lazy.nvim 載入插件，優先設定 <leader> 按鍵確保 lazy 能夠正確設定
 vim.g.mapleader = " "
-require("lazy").setup(
+
 -- 要載入的插件列表
+require("lazy").setup(
   {
-    { -- Dracula 主題
-      "Mofiqul/dracula.nvim",
-      lazy = true,
-    },
+    -- 主題
+    { "Mofiqul/dracula.nvim",   lazy = true, },
+    { "EdenEast/nightfox.nvim", lazy = true, },
+    { "folke/tokyonight.nvim",  lazy = true, },
+    { "catppuccin/nvim",        lazy = true, name = "catppuccin", },
 
     { -- 按鍵提示
       "folke/which-key.nvim",
@@ -37,6 +39,11 @@ require("lazy").setup(
       branch = "0.1.x",
     },
 
+    { -- 快速切換註釋
+      "numToStr/Comment.nvim",
+      config = function() require("Comment").setup() end
+    },
+
     { -- LSP 相關
       "williamboman/mason.nvim",
       lazy = true,
@@ -59,8 +66,14 @@ require("lazy").setup(
         "hrsh7th/vim-vsnip", -- snippets engine
         "onsails/lspkind.nvim", -- type symbols in completion list
       },
-    }
+    },
+
+    { -- 自動插入成對括號
+      "windwp/nvim-autopairs",
+      dependencies = { "hrsh7th/nvim-cmp" },
+    },
   },
+
 
   -- lazy.nvim 的設定
   {
@@ -72,6 +85,7 @@ require("lazy").setup(
 
 
 -- 實際載入插件
+require("plugin.setup_theme")
 require("plugin.setup_which_key")
 require("plugin.setup_nvim_tree")
 require("plugin.setup_lualine")
@@ -86,6 +100,6 @@ require("plugin.setup_lspconfig")
 local wk = require("which-key")
 wk.register({
   ["<leader>l"] = { name = "+Lazy / +LSP" },
-  ["<leader>ld"] = { "<Cmd>Lazy<CR>", "Lazy dashboard" },
-
+  ["<leader>lp"] = { "<Cmd>Lazy<CR>", "Plugin dashboard" },
+  ["<leader>ls"] = { "<Cmd>Mason<CR>", "LSP dashboard" },
 })

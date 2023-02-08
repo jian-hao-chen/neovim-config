@@ -1,11 +1,11 @@
 -- 啟用滑鼠
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 
 -- 啟用輸入按鍵顯示
 vim.opt.showcmd = true
 
 -- 設定檔案編碼格式
-vim.opt.encoding = 'utf-8'
+vim.opt.encoding = "utf-8"
 
 
 -- === 行號相關設定 ===
@@ -16,7 +16,7 @@ vim.opt.number = true
 vim.opt.relativenumber = false
 
 -- 3. 總是顯示標號欄
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = "yes"
 
 
 -- === 搜尋相關設定 ===
@@ -32,7 +32,7 @@ vim.opt.incsearch = true
 
 -- === Tab 相關設定 ===
 -- 1. 讀取到 Tab 字元時顯示的寬度
-vim.opt.tabstop = 8
+vim.opt.tabstop = 2
 
 -- 2. 縮排時使用的寬度
 vim.opt.shiftwidth = 2
