@@ -6,16 +6,14 @@ require("which-key").setup({
       suggestions = 20,
     },
   },
-
   window = {
-    border = "rounded",
-    padding = { 1, 1, 1, 1 },
+    border = "none",
+    padding = { 1, 0, 1, 0 },
   },
-
   layout = {
-    height = { min = 4, max = 25 },
-    width = { min = 20, max = 60 },
-    spacing = 5,
-    align = "center",
+    -- height = { min = 4, max = 25 },
+    -- width = { min = 20, max = 60 },
+    spacing = 3,
+    align = "left",
   },
 })

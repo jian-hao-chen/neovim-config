@@ -78,7 +78,8 @@ require("lazy").setup(
   {
     -- lazy.nvim 的設定
     ui = {
-      border = "rounded",
+      size = { width = 0.7, height = 0.7 },
+      border = "none",
     },
   }
 )

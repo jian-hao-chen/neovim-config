@@ -18,11 +18,9 @@ cmp.setup({
       -- vim.fn["UltiSnips#Anon"](args.body)
     end,
   },
-
   view = {
     -- entries = { name = "custom", selection_order = "near_cursor" }
   },
-
   window = {
     completion = cmp.config.window.bordered({
       border = { '', '', '', '', '', '', '', '' },
@@ -32,23 +30,20 @@ cmp.setup({
     }),
     -- documentation = cmp.config.window.bordered({}),
   },
-
   mapping = cmp.mapping.preset.insert({
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
   }),
-
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "vsnip" },
   }, {
     { name = "buffer" },
   }),
-
   formatting = {
     format = lspkind.cmp_format({
       mode = "symbol_text",
       max_width = 80,
-      ellipsis_char = "…",
+      ellipsis_char = "...",
 
       -- 選單文字內容排版, 這個函數會 lspkind 在加上圖標之前調用, 所以可以讓你自訂選單的
       -- 文字內容或順序等格式, 參考: https://github.com/onsails/lspkind-nvim/pull/30
