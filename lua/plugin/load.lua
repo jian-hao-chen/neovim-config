@@ -70,13 +70,13 @@ require("lazy").setup(
 
     { -- 自動插入成對括號
       "windwp/nvim-autopairs",
+      lazy = true,
       dependencies = { "hrsh7th/nvim-cmp" },
     },
   },
 
-
-  -- lazy.nvim 的設定
   {
+    -- lazy.nvim 的設定
     ui = {
       border = "rounded",
     },
@@ -85,16 +85,16 @@ require("lazy").setup(
 
 
 -- 實際載入插件
-require("plugin.setup_theme")
-require("plugin.setup_which_key")
-require("plugin.setup_nvim_tree")
-require("plugin.setup_lualine")
-require("plugin.setup_alpha")
-require("plugin.setup_telescope")
-require("plugin.setup_mason")
-require("plugin.setup_nvim_cmp")
-require("plugin.setup_lspconfig")
-
+require("plugin.setup.theme")
+require("plugin.setup.which_key")
+require("plugin.setup.nvim_tree")
+require("plugin.setup.lualine")
+require("plugin.setup.alpha")
+require("plugin.setup.telescope")
+require("plugin.setup.mason")
+require("plugin.setup.nvim_cmp")
+require("plugin.setup.lspconfig")
+require("plugin.setup.nvim_autopairs")
 
 -- 設定打開 Lazy 的快捷鍵
 local wk = require("which-key")

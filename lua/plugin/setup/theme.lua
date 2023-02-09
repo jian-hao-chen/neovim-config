@@ -24,11 +24,11 @@ local dracula = {
 }
 
 -- === Themes from nightfox.nvim ===
-require("nightfox")
+-- require("nightfox")
 -- local theme = "nightfox"
 -- local theme = "dayfox"
 -- local theme = "dawnfox"
-local theme = "duskfox"
+-- local theme = "duskfox"
 -- local theme = "nordfox"
 -- local theme = "terafox"
 -- local theme = "carbonfox"
@@ -51,12 +51,12 @@ local theme = "duskfox"
 -- local theme = "tokyonight-day"
 
 -- === Themes from catppuccin/nvim ===
--- require("catppuccin").setup({
---   no_italic = true,
--- })
+require("catppuccin").setup({
+  no_italic = true,
+})
 -- local theme = "catppuccin"
 -- local theme = "catppuccin-latte"
--- local theme = "catppuccin-frappe"
+local theme = "catppuccin-frappe"
 -- local theme = "catppuccin-macchiato"
 -- local theme = "catppuccin-mocha"
 

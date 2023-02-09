@@ -26,7 +26,14 @@ local on_attach = function(client, bufnr)
   end
 end
 
--- 載入各語言伺服器的建議設定
+-- === 載入各語言伺服器的設定 ===
+-- C/C++: clangd
+nvim_lsp.clangd.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+-- Lua: sumneko_lua
 nvim_lsp.sumneko_lua.setup({
   capabilities = capabilities,
   on_attach = on_attach,
@@ -61,7 +68,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics,
     {
       underline = true,
-      update_in_insert = false,
+      update_in_insert = true,
       virtual_text = { spacing = 4, prefix = "🔥" },
       severity_sort = true,
     }
@@ -74,10 +81,10 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-vim.diagnostic.config({
-  virtual_text = {
-    prefix = "●"
-  },
-  update_in_insert = true,
-  float = { source = "always" },
-})
+-- vim.diagnostic.config({
+--   virtual_text = {
+--     prefix = "●"
+--   },
+--   update_in_insert = true,
+--   float = { source = "always" },
+-- })
