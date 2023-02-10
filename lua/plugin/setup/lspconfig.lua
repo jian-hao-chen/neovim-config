@@ -16,11 +16,13 @@ end
 
 -- 設定各語言伺服器的通用設定, 快捷鍵等
 local on_attach = function(client, bufnr)
-  local bufopts = { noremap = true, silent = true, buffer = bufnr }
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  local bufopts = {
+    noremap = true,
+    silent = true,
+    buffer = bufnr,
+    desc = "hover under cursor",
+  }
   vim.keymap.set('n', 'gh', vim.lsp.buf.hover, bufopts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   if client.server_capabilities.documentFormattingProvider then
     enable_format_on_save(client, bufnr)
   end

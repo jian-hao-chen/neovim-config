@@ -53,6 +53,12 @@ require("lazy").setup(
       },
     },
 
+    { -- 程式碼模板
+      "L3MON4D3/LuaSnip",
+      lazy = true,
+      version = "v1.*",
+    },
+
     { -- 自動補全
       "hrsh7th/nvim-cmp",
       lazy = true,
@@ -63,8 +69,8 @@ require("lazy").setup(
         "hrsh7th/cmp-buffer", -- completion source
         "hrsh7th/cmp-cmdline", -- completion source
         "hrsh7th/cmp-path", -- completion source
-        "hrsh7th/cmp-vsnip", -- bridge from vim-vsnip to nvim-cmp
-        "hrsh7th/vim-vsnip", -- snippets engine
+        "saadparwaiz1/cmp_luasnip", -- bridge from LuaSnip to nvim-cmp
+        "L3MON4D3/LuaSnip", -- snippets engine
         "onsails/lspkind.nvim", -- type symbols in completion list
       },
       config = function() require("plugin.setup.nvim_cmp") end,
@@ -81,9 +87,20 @@ require("lazy").setup(
     { -- 程式碼高亮解析器
       "nvim-treesitter/nvim-treesitter",
       lazy = true,
-      event = "BufEnter",
+      event = "BufRead",
       build = ":TSUpdate",
       config = function() require("plugin.setup.nvim_treesitter") end,
+    },
+
+    { -- LSP UI 整合
+      "glepnir/lspsaga.nvim",
+      lazy = true,
+      event = "LspAttach",
+      dependencies = {
+        "nvim-tree/nvim-web-devicons",
+        "nvim-treesitter/nvim-treesitter"
+      },
+      config = function() require("plugin.setup.lspsaga") end,
     },
   },
 
