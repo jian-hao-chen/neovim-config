@@ -56,6 +56,7 @@ require("lazy").setup(
     { -- 自動補全
       "hrsh7th/nvim-cmp",
       lazy = true,
+      event = { "InsertEnter", "CmdlineEnter" }, -- 第一次進入 Insert 模式才載入
       dependencies = {
         "neovim/nvim-lspconfig",
         "hrsh7th/cmp-nvim-lsp", -- completion source
@@ -66,12 +67,23 @@ require("lazy").setup(
         "hrsh7th/vim-vsnip", -- snippets engine
         "onsails/lspkind.nvim", -- type symbols in completion list
       },
+      config = function() require("plugin.setup.nvim_cmp") end,
     },
 
     { -- 自動插入成對括號
       "windwp/nvim-autopairs",
       lazy = true,
+      event = "InsertEnter",
       dependencies = { "hrsh7th/nvim-cmp" },
+      config = function() require("plugin.setup.nvim_autopairs") end,
+    },
+
+    { -- 程式碼高亮解析器
+      "nvim-treesitter/nvim-treesitter",
+      lazy = true,
+      event = "BufEnter",
+      build = ":TSUpdate",
+      config = function() require("plugin.setup.nvim_treesitter") end,
     },
   },
 
@@ -85,7 +97,7 @@ require("lazy").setup(
 )
 
 
--- 實際載入插件
+-- 實際載入插件, 注意: 有些插件需要特定載入順序
 require("plugin.setup.theme")
 require("plugin.setup.which_key")
 require("plugin.setup.nvim_tree")
@@ -93,9 +105,7 @@ require("plugin.setup.lualine")
 require("plugin.setup.alpha")
 require("plugin.setup.telescope")
 require("plugin.setup.mason")
-require("plugin.setup.nvim_cmp")
 require("plugin.setup.lspconfig")
-require("plugin.setup.nvim_autopairs")
 
 -- 設定打開 Lazy 的快捷鍵
 local wk = require("which-key")
@@ -103,4 +113,5 @@ wk.register({
   ["<leader>l"] = { name = "+Lazy / +LSP" },
   ["<leader>lp"] = { "<Cmd>Lazy<CR>", "Plugin dashboard" },
   ["<leader>ls"] = { "<Cmd>Mason<CR>", "LSP dashboard" },
+  ["<leader>li"] = { "<Cmd>LspInfo<CR>", "LSP information" },
 })
