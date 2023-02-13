@@ -35,8 +35,8 @@ nvim_lsp.clangd.setup({
   on_attach = on_attach,
 })
 
--- Lua: sumneko_lua
-nvim_lsp.sumneko_lua.setup({
+-- Lua: lua_ls
+nvim_lsp.lua_ls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   settings = {
@@ -65,6 +65,13 @@ nvim_lsp.sumneko_lua.setup({
   },
 })
 
+-- Python: pylsp
+nvim_lsp.pylsp.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+
 -- 設定語言檢查說明
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics,
@@ -83,10 +90,14 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
--- vim.diagnostic.config({
---   virtual_text = {
---     prefix = "●"
---   },
---   update_in_insert = true,
---   float = { source = "always" },
--- })
+-- 設定函數參數提示
+require("lsp_signature").setup({
+  hint_enable = false,
+  handler_opts = {
+    border = { "", "", "", "", "", "", "", "" },
+  },
+  max_width = 120,
+  floating_window_off_x = 0,
+  floating_wiodow_off_y = 0,
+  extra_trigger_chars = { "(", "," },
+})

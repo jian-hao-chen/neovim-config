@@ -102,6 +102,10 @@ require("lazy").setup(
       },
       config = function() require("plugin.setup.lspsaga") end,
     },
+
+    { -- LSP 函數參數顯示
+      "ray-x/lsp_signature.nvim",
+    },
   },
 
   {
